@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/tem_chat" android:title="@string/item_chat" android:icon="@drawable/iconsend"></item>
+    <group  android:checkableBehavior="single">
+        <menu>
+            <item
+                android:icon="@drawable/iconsend"
+                android:title="@string/item_tindanhdau" />
+            <item
+                android:icon="@drawable/iconsend"
+                android:title="@string/item_docganday" />
+            <item android:icon="@drawable/iconsend"
+                android:title="@string/item_offline">
+            </item>
+        </menu>
+    </group>
+    <group  android:checkableBehavior="single">
+        <menu>
+            <item android:id="@+id/item_switch_thongbao" app:actionLayout="@layout/action_viewswitch" android:title="@string/item_thongbao" />
+            <item android:id="@+id/item_switch_chedo" app:actionLayout="@layout/action_viewswitch" android:title="@string/item_chedo" />
+            <item android:id="@+id/item_setting" android:title="@string/item_caidat" android:icon="@android:drawable/ic_menu_manage"></item>
+            <item android:id="@+id/item_phienban" android:title="@string/item_phienban"></item>
+            <item android:id="@+id/item_email" android:title="@string/item_gopy"></item>
+        </menu>
+    </group>
+</menu>

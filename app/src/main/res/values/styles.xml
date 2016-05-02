@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="LinearProgress" parent="android:Widget.Holo.Light.ProgressBar.Horizontal">
+        <item name="colorAccent">#88c637</item>
+        <item name="android:process">#cfa718</item>
+    </style>
+
+    <style name="AppTheme.PopupOverlay"></style>
+
+</resources>

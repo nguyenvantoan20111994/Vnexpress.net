@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Vn.net</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="item_thongbao">Nhận tin nổi bật</string>
+    <string name="item_caidat">Cài đặt nâng cao</string>
+    <string name="item_chat">Chat Vui</string>
+    <string name="item_tindanhdau">Tin đánh dấu</string>
+    <string name="item_docganday">Đọc gần đây</string>
+    <string name="item_offline">Đọc offline</string>
+    <string name="item_phienban">Phiên bản hiện tại</string>
+    <string name="item_dieukhoansudung">Điều khoản sử dụng</string>
+    <string name="item_gopy">Gửi email góp ý</string>
+    <string name="item_chedo">chế độ ban đêm</string>
+</resources>

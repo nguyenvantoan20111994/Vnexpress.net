@@ -1,0 +1,10 @@
+<shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#0b0b0b"></solid>
+    <!-- đặt thuộc tính màu và độ rộng của đường viền -->
+    <stroke android:color="#3370ff" android:width="1dp"></stroke>
+    <!-- các thuộc tính căn chỉnh -->
+   <padding android:bottom="7dp" android:left="7dp" android:right="7dp" android:top="7dp"></padding>
+    <!-- và đây là bán kính đường tròn ở 4 góc -->
+    <corners android:radius="200dp"></corners>
+</shape>
+

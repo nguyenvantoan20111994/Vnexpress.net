@@ -11,16 +11,12 @@ public class rssitem {
     String _img;
     String _pubdatesystem;
 
-    public rssitem() {
-    }
-
-    public rssitem(String _description, String _img, String _link, String _pubdate, String _title, String _pubdatesystem) {
+    public rssitem(String _description, String _img, String _link, String _pubdate, String _title) {
         this._description = _description;
         this._img = _img;
         this._link = _link;
         this._pubdate = _pubdate;
         this._title = _title;
-        this._pubdatesystem = _pubdatesystem;
     }
 
     public String get_description() {

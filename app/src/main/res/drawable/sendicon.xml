@@ -1,5 +1,5 @@
 <shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="#0b0b0b"></solid>
+    <solid android:color="#030b0b0b"></solid>
     <!-- đặt thuộc tính màu và độ rộng của đường viền -->
     <stroke android:color="#3370ff" android:width="1dp"></stroke>
     <!-- các thuộc tính căn chỉnh -->

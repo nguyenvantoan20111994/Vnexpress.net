@@ -1,4 +1,4 @@
-package com.example.toan.vnnet;
+package com.example.toan.vnnet.adapter;
 
 /**
  * Created by toan on 4/20/2016.

@@ -1,4 +1,4 @@
-package com.example.toan.vnnet;
+package com.example.toan.vnnet.adapter;
 
 import android.app.Activity;
 import android.content.Context;
@@ -8,6 +8,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.toan.vnnet.object.ImageItem;
+import com.example.toan.vnnet.R;
 
 import java.util.ArrayList;
 

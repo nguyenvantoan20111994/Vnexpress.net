@@ -45,7 +45,7 @@ public class Rssparser {
     private static String TAG_ITEM = "item";
     private static String TAG_PUB_DATE = "pubDate";
     private static String TAG_GUID = "guid";
-    private static String pubdatesystem;
+  //  private static String pubdatesystem="10";
 
 
     public List<rssitem> getRssFeedItems(String rss_url){
@@ -57,9 +57,7 @@ public class Rssparser {
             try {
                 Document doc=this.getDomElement(rss_feed_xml);
                 NodeList nodeList=doc.getElementsByTagName(TAG_CHANNEL);
-                Element e2=(Element) nodeList.item(0);
-                pubdatesystem=this.getValue(e2,TAG_PUBSYSTEM_DATE);
-                Element e=(Element) nodeList.item(1) ;
+                Element e=(Element) nodeList.item(0);
                 NodeList items = e.getElementsByTagName(TAG_ITEM);
                 for (int i=0;i<items.getLength();i++){
                     Element e1=(Element) items.item(i);
@@ -72,17 +70,15 @@ public class Rssparser {
                     Elements imgfile=dochtml.select("img");
                     String img=imgfile.attr("src");
                     String de=dochtml.text();
-                    rssitem rssitem=new rssitem(title,link,de,pubdate,img,pubdatesystem);
+                    rssitem rssitem=new rssitem(title,link,de,pubdate,img);
                     itemslist.add(rssitem);
                 }
-                Log.d(pubdatesystem,"erro");
-
 
             }catch (Exception e){
                 e.printStackTrace();
             }
         }
-        return null;
+        return itemslist;
     }
 
     private String getValue(Element item, String str) {
@@ -92,7 +88,7 @@ public class Rssparser {
 
     private String getElementValue(Node elem) {
         Node child;
-        if (elem != null) {
+        if (            elem != null) {
             if (elem.hasChildNodes()) {
                 for (child = elem.getFirstChild(); child != null; child = child
                         .getNextSibling()) {
@@ -107,7 +103,7 @@ public class Rssparser {
     }
 
     private Document getDomElement(String xml) {
-        Document doc = null;
+        Document doc=null;
         DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
         try {
 
@@ -137,7 +133,6 @@ public class Rssparser {
             // request method is GET
             DefaultHttpClient httpClient = new DefaultHttpClient();
             HttpGet httpGet = new HttpGet(url);
-
             HttpResponse httpResponse = httpClient.execute(httpGet);
             HttpEntity httpEntity = httpResponse.getEntity();
             xml = EntityUtils.toString(httpEntity);

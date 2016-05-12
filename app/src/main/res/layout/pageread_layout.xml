@@ -25,7 +25,7 @@
         <ImageButton
             android:backgroundTintMode="screen"
             android:background= "@drawable/sendicon"
-            android:src="@drawable/iconsend"
+            android:src="@drawable/write_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnviet"
@@ -34,7 +34,7 @@
 
             <ImageButton
                 android:background="@drawable/sendicon"
-            android:src= "@drawable/iconsend"
+            android:src= "@drawable/comment_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btncomment" />
@@ -42,9 +42,16 @@
             <ImageButton
                 android:layout_marginLeft="40dp"
                 android:background= "@drawable/sendicon"
-            android:src= "@drawable/iconsend"
+            android:src= "@drawable/share_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnshare" />
+            <ImageButton
+                android:layout_marginLeft="40dp"
+                android:background= "@drawable/sendicon"
+                android:src= "@drawable/bookmark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnbookmark" />
         </LinearLayout></android.support.v7.widget.Toolbar>
 </RelativeLayout>

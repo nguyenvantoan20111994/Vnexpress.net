@@ -1,5 +1,7 @@
 package com.example.toan.vnnet.RSSitem;
 
+import java.util.Date;
+
 /**
  * Created by toan on 4/30/2016.
  */
@@ -11,7 +13,7 @@ public class rssitem {
     String _img;
     String _pubdatesystem;
 
-    public rssitem(String _description, String _img, String _link, String _pubdate, String _title) {
+    public rssitem( String _title, String _pubdate,String _description, String _img, String _link) {
         this._description = _description;
         this._img = _img;
         this._link = _link;

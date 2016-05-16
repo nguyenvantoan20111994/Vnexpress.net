@@ -1,4 +1,4 @@
-package com.example.toan.vnnet.RSSitem;
+package com.example.toan.vnnet.object;
 
 import java.util.Date;
 

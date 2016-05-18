@@ -1,6 +1,9 @@
 package com.example.toan.vnnet.RSSitem;
 
+import android.net.ParseException;
 import android.util.Log;
+
+import com.example.toan.vnnet.object.rssitem;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -20,6 +23,7 @@ import org.xml.sax.SAXException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.io.UnsupportedEncodingException;
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -42,21 +46,22 @@ public class Rssparser {
     private static String TAG_ITEM = "item";
     private static String TAG_PUB_DATE = "pubDate";
     private static String TAG_GUID = "guid";
-
     //  private static String pubdatesystem="10";
     public List<rssitem> getRssFeedItems(String rss_url) {
         //tạo một list của lớp rssitem
         List<rssitem> itemslist = new ArrayList<rssitem>();
         String rss_feed_xml;
         // chuyen doi mot string thanh date
-        SimpleDateFormat dateformat = new SimpleDateFormat("EEE,DD MMM yyyy hh:mm:ss Z");
-
+        SimpleDateFormat formater = new SimpleDateFormat("EEE, dd MMM yyyy hh:mm:ss ");
         rss_feed_xml = this.getXmlFromUrl(rss_url);
         if (rss_feed_xml != null) {
             try {
                 Document doc = this.getDomElement(rss_feed_xml);
                 NodeList nodeList = doc.getElementsByTagName(TAG_CHANNEL);
-                //Log.i("anh", "cc "+cc);
+
+                Element e2=(Element) nodeList.item(0);
+                String current=this.getValue(e2,TAG_PUBSYSTEM_DATE).replace("+0700","");
+
                 Element e = (Element) nodeList.item(0);
                 NodeList items = e.getElementsByTagName(TAG_ITEM);
                 for (int i = 0; i < items.getLength(); i++) {
@@ -64,20 +69,23 @@ public class Rssparser {
                     String title = this.getValue(e1, TAG_TITLE);
                     String link = this.getValue(e1, TAG_LINK);
                     String descripton = this.getValue(e1, TAG_DESRIPTION);
-                    String pubdate = this.getValue(e1, TAG_PUB_DATE);
-                    Date convertedDate = new Date();
-                    convertedDate = dateformat.parse(pubdate);
-                    Log.i("toan","date="+ convertedDate.getTime());
+                    String pubdate = this.getValue(e1, TAG_PUB_DATE).replace("+0700","");
+
+                    Date date1 = formater.parse(current);
+                    Date date2 = formater.parse(pubdate);
+                    String result = substractDates(date1, date2, new SimpleDateFormat("h"));
+                    result= result+"h trước";
                     String guid = this.getValue(e1, TAG_GUID);
                     org.jsoup.nodes.Document dochtml = Jsoup.parse(descripton);
                     Elements imgfile = dochtml.select("img");
                     String img = imgfile.attr("src");
+                    Log.d("img", "getRssFeedItems: "+img);
                     //tach des lay mot chuoi tu sau </br>
                     String summary = descripton.substring(descripton.indexOf("</a></br>") + 9);
-                    rssitem rssitem = new rssitem(title, pubdate, summary, link, img);
+                    rssitem rssitem = new rssitem(title, result, summary, img, link);
+
                     itemslist.add(rssitem);
                 }
-                Log.i("Shinoda", "Size=" + itemslist.size());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -150,5 +158,13 @@ public class Rssparser {
         }
         // return XML
         return xml;
+    }
+    private String substractDates(Date date1, Date date2, SimpleDateFormat format)
+    {
+        long restDatesinMillis = date1.getTime()-date2.getTime();
+        Date restdate = new Date(restDatesinMillis);
+
+        return format.format(restdate);
+
     }
 }

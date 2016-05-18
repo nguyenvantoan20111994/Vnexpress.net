@@ -3,13 +3,13 @@
     android:layout_width= "match_parent"
     android:layout_height= "match_parent" >
     <ImageView
-        android:id= "@+id/picture"
+        android:id= "@+id/imagegird"
         android:layout_width= "match_parent"
         android:layout_height= "match_parent"
         android:scaleType= "centerCrop"
         />
     <TextView
-        android:id= "@+id/text"
+        android:id= "@+id/txtcategory"
         android:layout_width= "match_parent"
         android:layout_height= "wrap_content"
         android:paddingLeft= "10dp"

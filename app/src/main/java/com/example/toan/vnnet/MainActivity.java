@@ -7,15 +7,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
 
-import com.example.toan.vnnet.RSSitem.Rssparser;
+import com.example.toan.vnnet.fragment.category;
+import com.example.toan.vnnet.fragment.tinhot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private void setupviewpager(ViewPager viewPager){
             ViewPagerAdapter viewPagerAdapter=new ViewPagerAdapter(getSupportFragmentManager());
             viewPagerAdapter.addFrag(new tinhot(),"Tin Hot");
-            viewPagerAdapter.addFrag(new tinhot(),"Danh Mục");
+            viewPagerAdapter.addFrag(new category(),"Danh Mục");
             viewPager.setAdapter(viewPagerAdapter);
     }
     class ViewPagerAdapter extends FragmentPagerAdapter {

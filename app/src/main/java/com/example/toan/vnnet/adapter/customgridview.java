@@ -1,6 +1,7 @@
 package com.example.toan.vnnet.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,15 +20,29 @@ import java.util.List;
 /**
  * Created by toan on 4/20/2016.
  */
-public class customgridview extends ArrayAdapter<rssitem> {
+public class customgridview extends BaseAdapter {
     private Context context;
     private int layoutResourceId;
     private List<rssitem> rssitemList;
 
-    public customgridview(Context context, int layoutresourceId) {
-        super(context,layoutresourceId);
+    public customgridview(Context context, List<rssitem> rssitemList) {
         this.context = context;
-        this.layoutResourceId = layoutresourceId;
+        this.rssitemList = rssitemList;
+    }
+
+    @Override
+    public int getCount() {
+        return rssitemList.size();
+    }
+
+    @Override
+    public Object getItem(int i) {
+        return null;
+    }
+
+    @Override
+    public long getItemId(int i) {
+        return 0;
     }
 
     @Override
@@ -39,7 +54,7 @@ public class customgridview extends ArrayAdapter<rssitem> {
         if (row == null) {
 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            row = inflater.inflate(layoutResourceId, viewGroup, false);
+            row = inflater.inflate(R.layout.customgirdview, viewGroup, false);
             holder = new Holder();
             holder.txtTitle = (TextView) row.findViewById(R.id.txtcategory);
             holder.img = (ImageView) row.findViewById(R.id.imagegird);
